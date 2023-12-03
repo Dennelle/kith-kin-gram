@@ -10,18 +10,19 @@ require("./config/database");
 
 const app = express();
 
+const usersRouter = require("./routes/api/users");
+
 // add in when the app is ready to be deployed
 // app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(logger("dev"));
 app.use(express.json());
 
-
 // Configure the auth middleware
 // This decodes the jwt token, and assigns
 // the user information to req.user
 app.use(require("./config/auth"));
-// api routes must be before the "catch all" route
-app.use("/api/users", require("./routes/api/users"));
+// api routes must be before the "catch all" route api/users
+app.use("/", usersRouter);
 
 // "catch all" route
 app.get('/*', function(req, res) {
