@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 // ===== components ======
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import Header from "../../components/Header/Header";
+
+// ===== utilis =========
 import userService from "../../utils/userService";
 
 export default function SignUpPage() {
@@ -51,9 +54,7 @@ export default function SignUpPage() {
 
   return (
     <>
-      <Header>
-        <Image src="https://i.imgur.com/lL3fL1C.png" /> Sign Up
-      </Header>
+      <Header />
       <form autocomplete="off" onSubmit={handleSubmit}>
         <input
           name="username"
