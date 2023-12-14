@@ -11,6 +11,8 @@ require("./config/database");
 const app = express();
 
 const usersRouter = require("./routes/api/users");
+const userRouter = require("./routes/api/users");
+const postRouter = require("./routes/api/posts");
 
 // add in when the app is ready to be deployed
 // app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
@@ -23,17 +25,16 @@ app.use(express.json());
 app.use(require("./config/auth"));
 // api routes must be before the "catch all" route api/users
 app.use("/", usersRouter);
-
+app.use("/", userRouter);
+app.use("/", postRouter);
+app.use("/", likesRouter);
 // "catch all" route
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 
-const port = process.env.PORT || 3001;
-
-
-
+// const port = process.env.PORT || 3001;
 
 const { PORT = 8000 } = process.env;
 app.listen(PORT, () => {

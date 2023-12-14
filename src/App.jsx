@@ -1,19 +1,18 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
+// import "./App.css";
 
-import userService from "./utils/userService";
+// import userService from "./utils/userService";
 
-// ===== pages ======
+// // ===== pages ======
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage from "./pages/SignupPage/SignupPage";
 
 // ===== components ======
-import Header from "./components/Header/Header";
 
 export default function App() {
   return (
     <>
-      <Header />
+      <h1>Hello World</h1>
       <Routes>
         <Route path="/" element={<h1>Home Page</h1>} />
         <Route path="/login" element={<LoginPage />} />

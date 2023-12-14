@@ -1,60 +1,61 @@
 // ==== hooks =====
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 
 // ===== components ======
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import Header from "../../components/Header/Header";
+// import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+// import Header from "../../components/Header/Header";
 
 // ===== utilis =========
-import userService from "../../utils/userService";
+// import userService from "../../utils/userService";
 
 export default function SignUpPage() {
-  const [state, setState] = useState({
-    username: "",
-    password: "",
-    passwordConf: "",
-    familybio: "",
-  });
+  // const [state, setState] = useState({
+  //   username: "",
+  //   password: "",
+  //   passwordConf: "",
+  //   familybio: "",
+  // });
 
-  const [photo, setPhoto] = useState("");
-  const [error, setError] = useState("");
-  //navigate the user to a different route
-  const navigate = useNavigate();
+  // const [photo, setPhoto] = useState("");
+  // const [error, setError] = useState("");
+  // //navigate the user to a different route
+  // const navigate = useNavigate();
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("photo", photo);
-    for (let key in state) {
-      formData.append(key, state[key]);
-    }
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append("photo", photo);
+  //   for (let key in state) {
+  //     formData.append(key, state[key]);
+  //   }
 
-    try {
-      await userService.signup(formData);
-      handleSignUpOrLogin();
-      navigate("/");
-    } catch (err) {
-      console.log(err.message);
-      setError("Try signing up again");
-    }
-  }
+  //   try {
+  //     await userService.signup(formData);
+  //     handleSignUpOrLogin();
+  //     navigate("/");
+  //   } catch (err) {
+  //     console.log(err.message);
+  //     setError("Try signing up again");
+  //   }
+  // }
 
-  function handleChange(e) {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value,
-    });
-  }
+  // function handleChange(e) {
+  //   setState({
+  //     ...state,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // }
 
-  function handleFileInput(e) {
-    console.log(e.target.files);
-    setPhoto(e.target.files[0]);
-  }
+  // function handleFileInput(e) {
+  //   console.log(e.target.files);
+  //   setPhoto(e.target.files[0]);
+  // }
 
   return (
     <>
-      <Header />
+      <h1>Signup Page</h1>
+      {/* <Header />
       <form autocomplete="off" onSubmit={handleSubmit}>
         <input
           name="username"
@@ -96,7 +97,7 @@ export default function SignUpPage() {
           Signup
         </Button>
         {error ? <ErrorMessage error={error} /> : null}
-      </form>
+      </form> */}
     </>
   );
 }
